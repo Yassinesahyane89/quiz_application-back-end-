@@ -1,8 +1,9 @@
 /* ========================== Get Data ==========================  */
+"use strict";
 let quizData;
 function getData() {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "database.php", true);
+    xhr.open("POST", "include/quizDB.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
@@ -107,11 +108,7 @@ function Showdata() {
     totalquestion.innerText = quizData.length;
     questionindex = getRndInteger(0, quizData.length);
     prevquestion.push(questionindex);
-    console.log(prevquestion);
-    console.log(questionindex);
     currentQuiz++;
-    console.log("jjjjj   ",currentQuiz);
-    console.log(Arrayanswer);
     prog.style.width = ((currentQuiz) / quizData.length) * 100 + "%";
 
     Titlepage.innerHTML = "AWS Cloud Practitioner Knowledge Test ";
@@ -168,7 +165,7 @@ function getSelected() {
 let resultdata;
 function getresult() {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "database.php", true);
+  xhr.open("POST", "include/quizDB.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4) {
